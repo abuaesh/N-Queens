@@ -1,0 +1,1134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+<HEAD>
+	
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.4  (Unix)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20130421;19503400">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20130520;19010100">
+	
+	<STYLE>
+		<!-- 
+		BODY,DIV,TABLE,THEAD,TBODY,TFOOT,TR,TH,TD,P { font-family:"Liberation Sans"; font-size:x-small }
+		 -->
+	</STYLE>
+	
+</HEAD>
+
+<BODY TEXT="#000000">
+<TABLE FRAME=VOID CELLSPACING=0 COLS=17 RULES=NONE BORDER=0>
+	<COLGROUP><COL WIDTH=273><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=119><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86></COLGROUP>
+	<TBODY>
+		<TR>
+			<TD WIDTH=273 HEIGHT=65 ALIGN=LEFT><B><FONT FACE="Liberation Serif" SIZE=4>Solving a Weighted Board N-Queens Problem Using a Backtracking Algorithm</FONT></B></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=119 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD WIDTH=86 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=20 ALIGN=LEFT><B><FONT FACE="Liberation Serif" SIZE=3>Board Weights from:</FONT></B></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=32 ALIGN=LEFT><FONT FACE="Liberation Serif">http://www1.aucegypt.edu/faculty/abdelbar/cs525.html</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=20 ALIGN=LEFT><B><FONT FACE="Liberation Serif" SIZE=3>Code Files:</FONT></B></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif">weights.h</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif">nq.cilk</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=20 ALIGN=LEFT><B><FONT FACE="Liberation Serif" SIZE=3>Program Statistics:</FONT></B></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD ROWSPAN=2 HEIGHT=34 ALIGN=CENTER VALIGN=MIDDLE BGCOLOR="#333333"><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD COLSPAN=7 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif">Board Size(n: # of int elements)</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD ALIGN=CENTER SDVAL="8" SDNUM="1033;"><B><FONT FACE="Liberation Serif">8</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="12" SDNUM="1033;"><B><FONT FACE="Liberation Serif">12</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="14" SDNUM="1033;"><B><FONT FACE="Liberation Serif">14</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><B><FONT FACE="Liberation Serif">16</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="20" SDNUM="1033;"><B><FONT FACE="Liberation Serif">20</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="24" SDNUM="1033;"><B><FONT FACE="Liberation Serif">24</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="28" SDNUM="1033;"><B><FONT FACE="Liberation Serif">28</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER><B><FONT FACE="Liberation Serif">Minimum Cost Found</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="975" SDNUM="1033;"><FONT FACE="Liberation Serif">975</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="882" SDNUM="1033;"><FONT FACE="Liberation Serif">882</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="832" SDNUM="1033;"><FONT FACE="Liberation Serif">832</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="791" SDNUM="1033;"><FONT FACE="Liberation Serif">791</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="795" SDNUM="1033;"><FONT FACE="Liberation Serif">795</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="804" SDNUM="1033;"><FONT FACE="Liberation Serif">804</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="765" SDNUM="1033;"><FONT FACE="Liberation Serif">765</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER><B><FONT FACE="Liberation Serif"># of Solutions to Reach Min. Cost</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="4" SDNUM="1033;"><FONT FACE="Liberation Serif">4</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><FONT FACE="Liberation Serif">16</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><FONT FACE="Liberation Serif">16</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="37" SDNUM="1033;"><FONT FACE="Liberation Serif">37</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="37" SDNUM="1033;"><FONT FACE="Liberation Serif">37</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="52" SDNUM="1033;"><FONT FACE="Liberation Serif">52</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="65" SDNUM="1033;"><FONT FACE="Liberation Serif">65</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER><B><FONT FACE="Liberation Serif"># of Possible Solutions*</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="92" SDNUM="1033;"><FONT FACE="Liberation Serif">92</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="14200" SDNUM="1033;"><FONT FACE="Liberation Serif">14200</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="365596" SDNUM="1033;"><FONT FACE="Liberation Serif">365596</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="14772512" SDNUM="1033;"><FONT FACE="Liberation Serif">14772512</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="39029188884" SDNUM="1033;"><FONT FACE="Liberation Serif">39029188884</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="227514171973736" SDNUM="1033;"><FONT FACE="Liberation Serif">227514171973736</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER><B><FONT FACE="Liberation Serif"># of Solutions Pruned by Backtracking</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="88" SDNUM="1033;"><FONT FACE="Liberation Serif">88</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="14184" SDNUM="1033;"><FONT FACE="Liberation Serif">14184</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="365580" SDNUM="1033;"><FONT FACE="Liberation Serif">365580</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="14772475" SDNUM="1033;"><FONT FACE="Liberation Serif">14772475</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="39029188847" SDNUM="1033;"><FONT FACE="Liberation Serif">39029188847</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="227514171973684" SDNUM="1033;"><FONT FACE="Liberation Serif">227514171973684</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">0</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER><B><FONT FACE="Liberation Serif">% pruned by Backtracking (%)</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="0.956521739130435" SDNUM="1033;0;0.00%"><FONT FACE="Liberation Serif">95.65%</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.99887323943662" SDNUM="1033;0;0.00%"><FONT FACE="Liberation Serif">99.89%</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.999956235845031" SDNUM="1033;0;0.00%"><FONT FACE="Liberation Serif">100.00%</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.999997495348117" SDNUM="1033;0;0.00%"><FONT FACE="Liberation Serif">100.00%</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.999999999051992" SDNUM="1033;0;0.00%"><FONT FACE="Liberation Serif">100.00%</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.999999999999771" SDNUM="1033;0;0.00%"><FONT FACE="Liberation Serif">100.00%</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;0;0.00%"><FONT FACE="Liberation Serif">0.00%</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER><FONT FACE="Liberation Serif">*Values from Wikipedia </FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=36 ALIGN=LEFT><B><FONT FACE="Liberation Serif" SIZE=3>Cilk Statistics:</FONT></B></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><B><FONT FACE="Liberation Serif" SIZE=3>Calculated Statistics:</FONT></B></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD ROWSPAN=2 HEIGHT=34 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif"># of processors</FONT></B></TD>
+			<TD COLSPAN=7 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif">Board Size(n: # of int elements)</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ROWSPAN=2 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif"># of processors</FONT></B></TD>
+			<TD COLSPAN=7 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif">Board Size(n: # of int elements)</FONT></B></TD>
+			</TR>
+		<TR>
+			<TD ALIGN=CENTER SDVAL="8" SDNUM="1033;"><B><FONT FACE="Liberation Serif">8</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="12" SDNUM="1033;"><B><FONT FACE="Liberation Serif">12</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="14" SDNUM="1033;"><B><FONT FACE="Liberation Serif">14</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><B><FONT FACE="Liberation Serif">16</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="20" SDNUM="1033;"><B><FONT FACE="Liberation Serif">20</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="24" SDNUM="1033;"><B><FONT FACE="Liberation Serif">24</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="28" SDNUM="1033;"><B><FONT FACE="Liberation Serif">28</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="8" SDNUM="1033;"><B><FONT FACE="Liberation Serif">8</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="12" SDNUM="1033;"><B><FONT FACE="Liberation Serif">12</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="14" SDNUM="1033;"><B><FONT FACE="Liberation Serif">14</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><B><FONT FACE="Liberation Serif">16</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="20" SDNUM="1033;"><B><FONT FACE="Liberation Serif">20</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="24" SDNUM="1033;"><B><FONT FACE="Liberation Serif">24</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="28" SDNUM="1033;"><B><FONT FACE="Liberation Serif">28</FONT></B></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="1" SDNUM="1033;"><FONT FACE="Liberation Serif">1</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.667" SDNUM="1033;"><FONT FACE="Liberation Serif">2.667</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="88.298" SDNUM="1033;"><FONT FACE="Liberation Serif">88.298</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="598.246" SDNUM="1033;"><FONT FACE="Liberation Serif">598.246</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2819" SDNUM="1033;"><FONT FACE="Liberation Serif">2819</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="463362.8" SDNUM="1033;"><FONT FACE="Liberation Serif">463362.8</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1" SDNUM="1033;"><FONT FACE="Liberation Serif">1</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.19610048743907" SDNUM="1033;"><FONT FACE="Liberation Serif">0.1961004874</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.99889012208657" SDNUM="1033;"><FONT FACE="Liberation Serif">0.9988901221</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.995284548496772" SDNUM="1033;"><FONT FACE="Liberation Serif">0.9952845485</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.00012770485988" SDNUM="1033;"><FONT FACE="Liberation Serif">1.0001277049</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.999999848930471" SDNUM="1033;"><FONT FACE="Liberation Serif">0.9999998489</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="2" SDNUM="1033;"><FONT FACE="Liberation Serif">2</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.609" SDNUM="1033;"><FONT FACE="Liberation Serif">0.609</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="111.779" SDNUM="1033;"><FONT FACE="Liberation Serif">111.779</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="779.565" SDNUM="1033;"><FONT FACE="Liberation Serif">779.565</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="5370" SDNUM="1033;"><FONT FACE="Liberation Serif">5370</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="514680" SDNUM="1033;"><FONT FACE="Liberation Serif">514680</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2" SDNUM="1033;"><FONT FACE="Liberation Serif">2</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.779967159277504" SDNUM="1033;"><FONT FACE="Liberation Serif">0.7799671593</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.90907057676308" SDNUM="1033;"><FONT FACE="Liberation Serif">1.9090705768</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="117.296184410537" SDNUM="1033;"><FONT FACE="Liberation Serif">117.2961844105</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.92551210428305" SDNUM="1033;"><FONT FACE="Liberation Serif">1.9255121043</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.9794823968291" SDNUM="1033;"><FONT FACE="Liberation Serif">1.9794823968</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="3" SDNUM="1033;"><FONT FACE="Liberation Serif">3</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.605" SDNUM="1033;"><FONT FACE="Liberation Serif">0.605</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="65.834" SDNUM="1033;"><FONT FACE="Liberation Serif">65.834</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="266.121" SDNUM="1033;"><FONT FACE="Liberation Serif">266.121</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3380" SDNUM="1033;"><FONT FACE="Liberation Serif">3380</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="492000" SDNUM="1033;"><FONT FACE="Liberation Serif">492000</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3" SDNUM="1033;"><FONT FACE="Liberation Serif">3</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.780165289256198" SDNUM="1033;"><FONT FACE="Liberation Serif">0.7801652893</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.60266731476137" SDNUM="1033;"><FONT FACE="Liberation Serif">2.6026673148</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.75163177652271" SDNUM="1033;"><FONT FACE="Liberation Serif">2.7516317765</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.7810650887574" SDNUM="1033;"><FONT FACE="Liberation Serif">2.7810650888</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.9390243902439" SDNUM="1033;"><FONT FACE="Liberation Serif">2.9390243902</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="4" SDNUM="1033;"><FONT FACE="Liberation Serif">4</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.589" SDNUM="1033;"><FONT FACE="Liberation Serif">0.589</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="95.675" SDNUM="1033;"><FONT FACE="Liberation Serif">95.675</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="418.385" SDNUM="1033;"><FONT FACE="Liberation Serif">418.385</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4000" SDNUM="1033;"><FONT FACE="Liberation Serif">4000</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="511800" SDNUM="1033;"><FONT FACE="Liberation Serif">511800</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="20725920" SDNUM="1033;"><FONT FACE="Liberation Serif">20725920</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="187935518" SDNUM="1033;"><B><FONT FACE="Liberation Serif">187935518</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4" SDNUM="1033;"><FONT FACE="Liberation Serif">4</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.804753820033956" SDNUM="1033;"><FONT FACE="Liberation Serif">0.80475382</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.332532009406846" SDNUM="1033;"><FONT FACE="Liberation Serif">0.3325320094</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3.59928534722803" SDNUM="1033;"><FONT FACE="Liberation Serif">3.5992853472</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3.5" SDNUM="1033;"><FONT FACE="Liberation Serif">3.5</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3.84290738569754" SDNUM="1033;"><FONT FACE="Liberation Serif">3.8429073857</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3.63853956784548" SDNUM="1033;"><FONT FACE="Liberation Serif">3.6385395678</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3.62823226953832" SDNUM="1033;"><B><FONT FACE="Liberation Serif">3.6282322695</FONT></B></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="16" SDNUM="1033;"><FONT FACE="Liberation Serif">16</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><FONT FACE="Liberation Serif">16</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=32 ALIGN=LEFT><FONT FACE="Liberation Serif">TOTAL RUNNING TIME OF THE ALGORITHM(in ms)</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif">Speedup (Work/Time)</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD ROWSPAN=2 HEIGHT=34 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif"># of processors</FONT></B></TD>
+			<TD COLSPAN=7 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif">Board Size(n: # of int elements)</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ROWSPAN=2 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif"># of processors</FONT></B></TD>
+			<TD COLSPAN=7 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif">Board Size(n: # of int elements)</FONT></B></TD>
+			</TR>
+		<TR>
+			<TD ALIGN=CENTER SDVAL="8" SDNUM="1033;"><B><FONT FACE="Liberation Serif">8</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="12" SDNUM="1033;"><B><FONT FACE="Liberation Serif">12</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="14" SDNUM="1033;"><B><FONT FACE="Liberation Serif">14</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><B><FONT FACE="Liberation Serif">16</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="20" SDNUM="1033;"><B><FONT FACE="Liberation Serif">20</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="24" SDNUM="1033;"><B><FONT FACE="Liberation Serif">24</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="28" SDNUM="1033;"><B><FONT FACE="Liberation Serif">28</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="8" SDNUM="1033;"><B><FONT FACE="Liberation Serif">8</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="12" SDNUM="1033;"><B><FONT FACE="Liberation Serif">12</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="14" SDNUM="1033;"><B><FONT FACE="Liberation Serif">14</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><B><FONT FACE="Liberation Serif">16</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="20" SDNUM="1033;"><B><FONT FACE="Liberation Serif">20</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="24" SDNUM="1033;"><B><FONT FACE="Liberation Serif">24</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="28" SDNUM="1033;"><B><FONT FACE="Liberation Serif">28</FONT></B></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="1" SDNUM="1033;"><FONT FACE="Liberation Serif">1</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.523" SDNUM="1033;"><FONT FACE="Liberation Serif">0.523</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="88.2" SDNUM="1033;"><FONT FACE="Liberation Serif">88.2</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="595.425" SDNUM="1033;"><FONT FACE="Liberation Serif">595.425</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2819.36" SDNUM="1033;"><FONT FACE="Liberation Serif">2819.36</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="463362.73" SDNUM="1033;"><FONT FACE="Liberation Serif">463362.73</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1" SDNUM="1033;"><FONT FACE="Liberation Serif">1</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="19.610048743907" SDNUM="1033;"><FONT FACE="Liberation Serif">19.6100487439</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="99.889012208657" SDNUM="1033;"><FONT FACE="Liberation Serif">99.8890122087</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="99.5284548496772" SDNUM="1033;"><FONT FACE="Liberation Serif">99.5284548497</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="100.012770485988" SDNUM="1033;"><FONT FACE="Liberation Serif">100.012770486</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="99.9999848930471" SDNUM="1033;"><FONT FACE="Liberation Serif">99.999984893</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="2" SDNUM="1033;"><FONT FACE="Liberation Serif">2</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.475" SDNUM="1033;"><FONT FACE="Liberation Serif">0.475</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="213.394" SDNUM="1033;"><FONT FACE="Liberation Serif">213.394</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="91440" SDNUM="1033;"><FONT FACE="Liberation Serif">91440</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="10340" SDNUM="1033;"><FONT FACE="Liberation Serif">10340</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1018800" SDNUM="1033;"><FONT FACE="Liberation Serif">1018800</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2" SDNUM="1033;"><FONT FACE="Liberation Serif">2</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="38.9983579638752" SDNUM="1033;"><FONT FACE="Liberation Serif">38.9983579639</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="95.4535288381539" SDNUM="1033;"><FONT FACE="Liberation Serif">95.4535288382</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="5864.80922052683" SDNUM="1033;"><FONT FACE="Liberation Serif">5864.8092205268</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="96.2756052141527" SDNUM="1033;"><FONT FACE="Liberation Serif">96.2756052142</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="98.9741198414549" SDNUM="1033;"><FONT FACE="Liberation Serif">98.9741198415</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="3" SDNUM="1033;"><FONT FACE="Liberation Serif">3</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.472" SDNUM="1033;"><FONT FACE="Liberation Serif">0.472</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="171.344" SDNUM="1033;"><FONT FACE="Liberation Serif">171.344</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="732.267" SDNUM="1033;"><FONT FACE="Liberation Serif">732.267</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="9400" SDNUM="1033;"><FONT FACE="Liberation Serif">9400</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1446000" SDNUM="1033;"><FONT FACE="Liberation Serif">1446000</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3" SDNUM="1033;"><FONT FACE="Liberation Serif">3</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="26.0055096418733" SDNUM="1033;"><FONT FACE="Liberation Serif">26.0055096419</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="86.7555771587123" SDNUM="1033;"><FONT FACE="Liberation Serif">86.7555771587</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="91.7210592174237" SDNUM="1033;"><FONT FACE="Liberation Serif">91.7210592174</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="92.7021696252465" SDNUM="1033;"><FONT FACE="Liberation Serif">92.7021696252</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="97.9674796747967" SDNUM="1033;"><FONT FACE="Liberation Serif">97.9674796748</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="4" SDNUM="1033;"><FONT FACE="Liberation Serif">4</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.474" SDNUM="1033;"><FONT FACE="Liberation Serif">0.474</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="31.815" SDNUM="1033;"><FONT FACE="Liberation Serif">31.815</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1505.887" SDNUM="1033;"><FONT FACE="Liberation Serif">1505.887</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="14000" SDNUM="1033;"><FONT FACE="Liberation Serif">14000</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1966800" SDNUM="1033;"><FONT FACE="Liberation Serif">1966800</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="75412080" SDNUM="1033;"><FONT FACE="Liberation Serif">75412080</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="681873711" SDNUM="1033;"><B><FONT FACE="Liberation Serif">681873711</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4" SDNUM="1033;"><FONT FACE="Liberation Serif">4</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="20.1188455008489" SDNUM="1033;"><FONT FACE="Liberation Serif">20.1188455008</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="8.31330023517115" SDNUM="1033;"><FONT FACE="Liberation Serif">8.3133002352</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="89.9821336807008" SDNUM="1033;"><FONT FACE="Liberation Serif">89.9821336807</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="87.5" SDNUM="1033;"><FONT FACE="Liberation Serif">87.5</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="96.0726846424385" SDNUM="1033;"><FONT FACE="Liberation Serif">96.0726846424</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="90.963489196137" SDNUM="1033;"><FONT FACE="Liberation Serif">90.9634891961</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="90.705806738458" SDNUM="1033;"><B><FONT FACE="Liberation Serif">90.7058067385</FONT></B></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="16" SDNUM="1033;"><FONT FACE="Liberation Serif">16</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><FONT FACE="Liberation Serif">16</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=32 ALIGN=LEFT><FONT FACE="Liberation Serif">WORK (in ms)</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif">Efficiency (Speedup/p %)</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD ROWSPAN=2 HEIGHT=34 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif"># of processors</FONT></B></TD>
+			<TD COLSPAN=7 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif">Board Size(n: # of int elements)</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ROWSPAN=2 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif"># of processors</FONT></B></TD>
+			<TD COLSPAN=7 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif">Board Size(n: # of int elements)</FONT></B></TD>
+			</TR>
+		<TR>
+			<TD ALIGN=CENTER SDVAL="8" SDNUM="1033;"><B><FONT FACE="Liberation Serif">8</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="12" SDNUM="1033;"><B><FONT FACE="Liberation Serif">12</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="14" SDNUM="1033;"><B><FONT FACE="Liberation Serif">14</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><B><FONT FACE="Liberation Serif">16</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="20" SDNUM="1033;"><B><FONT FACE="Liberation Serif">20</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="24" SDNUM="1033;"><B><FONT FACE="Liberation Serif">24</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="28" SDNUM="1033;"><B><FONT FACE="Liberation Serif">28</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="8" SDNUM="1033;"><B><FONT FACE="Liberation Serif">8</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="12" SDNUM="1033;"><B><FONT FACE="Liberation Serif">12</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="14" SDNUM="1033;"><B><FONT FACE="Liberation Serif">14</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><B><FONT FACE="Liberation Serif">16</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="20" SDNUM="1033;"><B><FONT FACE="Liberation Serif">20</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="24" SDNUM="1033;"><B><FONT FACE="Liberation Serif">24</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="28" SDNUM="1033;"><B><FONT FACE="Liberation Serif">28</FONT></B></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="1" SDNUM="1033;"><FONT FACE="Liberation Serif">1</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="19.929" SDNUM="1033;"><FONT FACE="Liberation Serif">19.929</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="226.879" SDNUM="1033;"><FONT FACE="Liberation Serif">226.879</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="612.693" SDNUM="1033;"><FONT FACE="Liberation Serif">612.693</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="140550.078" SDNUM="1033;"><FONT FACE="Liberation Serif">140550.078</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1" SDNUM="1033;"><FONT FACE="Liberation Serif">1</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4.266" SDNUM="1033;"><FONT FACE="Liberation Serif">4.266</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.32" SDNUM="1033;"><FONT FACE="Liberation Serif">2.32</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4.243" SDNUM="1033;"><FONT FACE="Liberation Serif">4.243</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3.0977" SDNUM="1033;"><FONT FACE="Liberation Serif">3.0977</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="2" SDNUM="1033;"><FONT FACE="Liberation Serif">2</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="44.9" SDNUM="1033;"><FONT FACE="Liberation Serif">44.9</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="400.034" SDNUM="1033;"><FONT FACE="Liberation Serif">400.034</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1976" SDNUM="1033;"><FONT FACE="Liberation Serif">1976</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="369000" SDNUM="1033;"><FONT FACE="Liberation Serif">369000</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2" SDNUM="1033;"><FONT FACE="Liberation Serif">2</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.96694" SDNUM="1033;"><FONT FACE="Liberation Serif">1.96694</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.7175" SDNUM="1033;"><FONT FACE="Liberation Serif">1.7175</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.356" SDNUM="1033;"><FONT FACE="Liberation Serif">2.356</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.29025" SDNUM="1033;"><FONT FACE="Liberation Serif">1.29025</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="3" SDNUM="1033;"><FONT FACE="Liberation Serif">3</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="37.821" SDNUM="1033;"><FONT FACE="Liberation Serif">37.821</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="99.435" SDNUM="1033;"><FONT FACE="Liberation Serif">99.435</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1950" SDNUM="1033;"><FONT FACE="Liberation Serif">1950</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="390000" SDNUM="1033;"><FONT FACE="Liberation Serif">390000</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3" SDNUM="1033;"><FONT FACE="Liberation Serif">3</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.45233333333333" SDNUM="1033;"><FONT FACE="Liberation Serif">1.4523333333</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.186115" SDNUM="1033;"><FONT FACE="Liberation Serif">2.186115</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.48733333333333" SDNUM="1033;"><FONT FACE="Liberation Serif">1.4873333333</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.15366666666667" SDNUM="1033;"><FONT FACE="Liberation Serif">1.1536666667</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="4" SDNUM="1033;"><FONT FACE="Liberation Serif">4</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.324" SDNUM="1033;"><FONT FACE="Liberation Serif">1.324</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="12.707" SDNUM="1033;"><FONT FACE="Liberation Serif">12.707</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="248" SDNUM="1033;"><FONT FACE="Liberation Serif">248</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2400" SDNUM="1033;"><FONT FACE="Liberation Serif">2400</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="435000" SDNUM="1033;"><FONT FACE="Liberation Serif">435000</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="12204000" SDNUM="1033;"><FONT FACE="Liberation Serif">12204000</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="134092767" SDNUM="1033;"><B><FONT FACE="Liberation Serif">134092767</FONT></B></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4" SDNUM="1033;"><FONT FACE="Liberation Serif">4</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.70732625" SDNUM="1033;"><FONT FACE="Liberation Serif">0.70732625</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0.490458" SDNUM="1033;"><FONT FACE="Liberation Serif">0.490458</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.338" SDNUM="1033;"><FONT FACE="Liberation Serif">1.338</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.37125675" SDNUM="1033;"><FONT FACE="Liberation Serif">1.37125675</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.055" SDNUM="1033;"><FONT FACE="Liberation Serif">1.055</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.45175" SDNUM="1033;"><FONT FACE="Liberation Serif">1.45175</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.2115" SDNUM="1033;"><B><FONT FACE="Liberation Serif">1.2115</FONT></B></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="16" SDNUM="1033;"><FONT FACE="Liberation Serif">16</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><FONT FACE="Liberation Serif">16</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="0" SDNUM="1033;"><FONT FACE="Liberation Serif">#VALUE!</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=32 ALIGN=LEFT><FONT FACE="Liberation Serif">SPAN(in ms)</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif">Slackness (Parallelism/p)</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD ROWSPAN=2 HEIGHT=34 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif"># of processors</FONT></B></TD>
+			<TD COLSPAN=7 ALIGN=CENTER VALIGN=MIDDLE><B><FONT FACE="Liberation Serif">Board Size(n: # of int elements)</FONT></B></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD ALIGN=CENTER SDVAL="8" SDNUM="1033;"><B><FONT FACE="Liberation Serif">8</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="12" SDNUM="1033;"><B><FONT FACE="Liberation Serif">12</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="14" SDNUM="1033;"><B><FONT FACE="Liberation Serif">14</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="16" SDNUM="1033;"><B><FONT FACE="Liberation Serif">16</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="20" SDNUM="1033;"><B><FONT FACE="Liberation Serif">20</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="24" SDNUM="1033;"><B><FONT FACE="Liberation Serif">24</FONT></B></TD>
+			<TD ALIGN=CENTER SDVAL="28" SDNUM="1033;"><B><FONT FACE="Liberation Serif">28</FONT></B></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="1" SDNUM="1033;"><FONT FACE="Liberation Serif">1</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4.266" SDNUM="1033;"><FONT FACE="Liberation Serif">4.266</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.32" SDNUM="1033;"><FONT FACE="Liberation Serif">2.32</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4.243" SDNUM="1033;"><FONT FACE="Liberation Serif">4.243</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3.0977" SDNUM="1033;"><FONT FACE="Liberation Serif">3.0977</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="2" SDNUM="1033;"><FONT FACE="Liberation Serif">2</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3.93388" SDNUM="1033;"><FONT FACE="Liberation Serif">3.93388</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3.435" SDNUM="1033;"><FONT FACE="Liberation Serif">3.435</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4.712" SDNUM="1033;"><FONT FACE="Liberation Serif">4.712</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.5805" SDNUM="1033;"><FONT FACE="Liberation Serif">2.5805</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="3" SDNUM="1033;"><FONT FACE="Liberation Serif">3</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4.357" SDNUM="1033;"><FONT FACE="Liberation Serif">4.357</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="6.558345" SDNUM="1033;"><FONT FACE="Liberation Serif">6.558345</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4.462" SDNUM="1033;"><FONT FACE="Liberation Serif">4.462</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="3.461" SDNUM="1033;"><FONT FACE="Liberation Serif">3.461</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="4" SDNUM="1033;"><FONT FACE="Liberation Serif">4</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="2.829305" SDNUM="1033;"><FONT FACE="Liberation Serif">2.829305</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="1.961832" SDNUM="1033;"><FONT FACE="Liberation Serif">1.961832</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="5.352" SDNUM="1033;"><FONT FACE="Liberation Serif">5.352</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="5.485027" SDNUM="1033;"><FONT FACE="Liberation Serif">5.485027</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4.22" SDNUM="1033;"><FONT FACE="Liberation Serif">4.22</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="5.807" SDNUM="1033;"><FONT FACE="Liberation Serif">5.807</FONT></TD>
+			<TD ALIGN=CENTER SDVAL="4.846" SDNUM="1033;"><B><FONT FACE="Liberation Serif">4.846</FONT></B></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER SDVAL="16" SDNUM="1033;"><FONT FACE="Liberation Serif">16</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif">N/A</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif">Parallelism(//-ism)</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=20 ALIGN=LEFT><B><FONT FACE="Liberation Serif" SIZE=3>Observations:</FONT></B></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=121 ALIGN=LEFT><FONT FACE="Liberation Serif">Looking at the running times of different board sizes, we notice a well-known property of NP-complete problems; the time seems to grow exponentially as n increases. Running times for small input size are OK, but it gets intractable for large input sizes(Board sizes more than 20 take hours to find a minimum-cost solution and days for the 28x28 board!!!)</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=62 ALIGN=LEFT><FONT FACE="Liberation Serif">Parallelism improves(increases) as n increases. This is expected as larger board sizes are more parallelizable, thus minimizing processors idle times.</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=47 ALIGN=LEFT><FONT FACE="Liberation Serif">Linear speedup is almost achieved starting from board size n=20; which means that the program is most parallelizable with large board sizes(n&gt;=20)</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=32 ALIGN=LEFT><FONT FACE="Liberation Serif">The efficiency increases with the board size and the no. of processors.</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=136 ALIGN=LEFT><FONT FACE="Liberation Serif">The above statistics strongly suggest that this problem is NP-Complete(can be easily verified in polynomial time but finding a solution takes exponential time). Since the typical N-Queens problem is NP-complete; therefore the weighted board version of N-Queens is certainly NP-complete too(can be proved by restriction from weighted Nqueens to typical Nqueens by putting equal weights for all positions).</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=32 ALIGN=LEFT><FONT FACE="Liberation Serif">Cilk does not generate span and parallelism info for the 8x8 board.</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=121 ALIGN=LEFT><FONT FACE="Liberation Serif">Even though they haven't yet finished execution of the 28x28 board, but the 16-core machine seems slower than my 4-core laptop; which I find surprising. A possible explanation may be that the 16-core machine is busy with other tasks,if it allows multiple simultaneous users because I know that I'm not running any other application on that machine.</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<!-- ************************************************************************** -->
+</BODY>
+
+</HTML>

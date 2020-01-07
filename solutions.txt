@@ -1,0 +1,165 @@
+8x8
+=====
+ x _ x _ Q _ x _
+ _ x _ x _ x Q x
+ x Q x _ x _ x _
+ _ x _ x _ Q _ x
+ x _ Q _ x _ x _
+ Q x _ x _ x _ x
+ x _ x Q x _ x _
+ _ x _ x _ x _ Q
+
+The cost is: 975
+It was found in the 4th solution.
+
+================================================
+12x12
+=====
+ x _ x _ x Q x _ x _ x _
+ _ x _ x _ x _ x _ x Q x
+ x _ x _ x _ Q _ x _ x _
+ _ x _ x Q x _ x _ x _ x
+ x _ Q _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ Q
+ x _ x _ x _ x _ x Q x _
+ _ x _ x _ x _ Q _ x _ x
+ x Q x _ x _ x _ x _ x _
+ _ x _ Q _ x _ x _ x _ x
+ Q _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x Q x _ x
+
+The cost is: 882
+It was found in the 19th solution.
+
+================================================
+14x14
+=====
+ x _ Q _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ Q _ x
+ x _ x _ x _ Q _ x _ x _ x _
+ _ x _ Q _ x _ x _ x _ x _ x
+ x _ x _ x _ x Q x _ x _ x _
+ _ x _ x _ x _ x _ x _ x Q x
+ x Q x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x Q x _ x _ x
+ x _ x _ x _ x _ x _ x _ x Q
+ _ x _ x _ Q _ x _ x _ x _ x
+ Q _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ Q _ x _ x
+ x _ x _ Q _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x Q x _ x
+
+The cost is: 832
+It was found in the 15th solution.
+
+================================================
+16x16
+=====
+ x _ x _ x _ x _ x Q x _ x _ x _
+ _ x _ x _ Q _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ Q _
+ _ x _ x _ x _ x _ x _ Q _ x _ x
+ x _ x _ Q _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ x _ x _ Q
+ x _ x _ x _ x _ x _ x _ x Q x _
+ Q x _ x _ x _ x _ x _ x _ x _ x
+ x _ x _ x _ x Q x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ x Q x _ x
+ x _ Q _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x Q x _ x _ x _ x _ x
+ x Q x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x Q x _ x _ x
+ x _ x _ x _ x _ Q _ x _ x _ x _
+ _ x _ Q _ x _ x _ x _ x _ x _ x
+
+The cost is: 791
+It was found in the 36th solution.
+
+================================================
+20x20
+=====
+ x _ x _ x _ Q _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x Q x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ x _ x Q x _
+ _ x _ x _ x _ x _ x _ x _ Q _ x _ x _ x
+ x _ x _ x _ x Q x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ Q _ x _ x _ x _ x _ x
+ x Q x _ x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ Q _ x _ x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ x _ Q _ x _
+ _ x _ x _ x _ x _ x _ x _ x _ x _ x Q x
+ Q _ x _ x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x Q x _ x _ x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ Q _ x _ x _
+ _ x _ x _ x _ x _ x _ x Q x _ x _ x _ x
+ x _ x Q x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ x _ x _ Q _ x _ x
+ x _ Q _ x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ Q _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ x _ x _ x Q
+ _ x _ x _ x _ x _ x Q x _ x _ x _ x _ x
+
+The cost is: 795
+It was found in the 37th solution.
+
+================================================
+24x24
+=====
+ x _ x _ x _ Q _ x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ x _ x _ x _ x _ Q _ x _ x
+ x _ x Q x _ x _ x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ x _ x _ x _ x _ x _ x _ Q
+ x _ x _ x _ x _ x _ x _ Q _ x _ x _ x _ x _ x _
+ _ x _ x _ Q _ x _ x _ x _ x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x Q x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ x _ x _ x _ x _ x Q x _ x
+ x _ x _ x _ x _ x _ x _ x _ x _ x Q x _ x _ x _
+ Q x _ x _ x _ x _ x _ x _ x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ Q _ x _ x _ x _ x _
+ _ x _ x Q x _ x _ x _ x _ x _ x _ x _ x _ x _ x
+ x _ Q _ x _ x _ x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x Q x _ x _ x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ x _ x _ x _ x Q x _
+ _ x _ x _ x _ Q _ x _ x _ x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x Q x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ x _ x _ Q _ x _ x _ x _ x
+ x Q x _ x _ x _ x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ x _ x _ x _ x Q x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ x _ x _ x _ x _ Q _
+ _ x _ x _ x _ x _ Q _ x _ x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ x _ Q _ x _ x _ x _
+ _ x _ x _ x _ x _ x Q x _ x _ x _ x _ x _ x _ x
+
+The cost is: 804
+It was found in the 52th solution.
+
+================================================
+28x28
+=====
+ x _ x _ x _ Q _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x Q x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ x _ x Q x _
+ _ x _ x _ x _ x _ x _ x _ Q _ x _ x _ x
+ x _ x _ x _ x Q x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ Q _ x _ x _ x _ x _ x
+ x Q x _ x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ Q _ x _ x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ x _ Q _ x _
+ _ x _ x _ x _ x _ x _ x _ x _ x _ x Q x
+ Q _ x _ x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x Q x _ x _ x _ x _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ Q _ x _ x _
+ _ x _ x _ x _ x _ x _ x Q x _ x _ x _ x
+ x _ x Q x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ x _ x _ Q _ x _ x
+ x _ Q _ x _ x _ x _ x _ x _ x _ x _ x _
+ _ x _ x _ x _ x _ x _ Q _ x _ x _ x _ x
+ x _ x _ x _ x _ x _ x _ x _ x _ x _ x Q
+ _ x _ x _ x _ x _ x Q x _ x _ x _ x _ x
+
+Minimum cost found so far is: 795
+It was found in the 37th solution.
+On-going execution...
+
+================================================
+

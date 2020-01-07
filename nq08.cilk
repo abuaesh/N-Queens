@@ -1,0 +1,139 @@
+#include <cilk-lib.cilkh>
+#include <cilk/cilk.h>
+#include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "weights.h"
+
+//Size of the board : n x n
+int n;
+
+//No. of solutions found so far
+int count = 0;
+
+int min_cost = 9999999;
+int min_solution = 0;
+
+int **weights;
+
+
+cilk void solve(int col, int *hist, int cost_so_far)
+{
+    int i, j;
+    pthread_mutex_t m; //define the lock
+	
+    if (col == n) 
+    {
+	pthread_mutex_lock(&m); //lock - prevents other threads from running this code
+
+        printf("\nNo. %d\n-----\n", ++count);
+
+        for (i = 0; i < n; i++, putchar('\n'))
+            for (j = 0; j < n; j++)
+	    {
+		putchar(' ');
+                putchar(j == hist[i] ? 'Q' : ((i + j) & 1) ? '_' : 'x');
+		/*if(j == hist[i])
+		{
+			printf("(%d, %d) = %d ", j, i, weights[j][i]);
+			
+		}*/
+	    }
+
+	if(cost_so_far < min_cost)
+	{
+		min_cost = cost_so_far;
+		min_solution = count;
+	}
+
+	printf("\nThe cost is: %d\n", cost_so_far);
+	printf("Minimum cost found so far is: %d\nIt was found in the %dth solution.\n", min_cost, min_solution);
+	pthread_mutex_unlock(&m); //unlock - allows other threads to access this code
+        return;
+    }
+	
+#   define attack(i, j) (hist[j] == i || abs(hist[j] - i) == col - j)
+    for (i = 0, j = 0; i < n; i++) {
+        for (j = 0; j < col && !attack(i, j); j++);
+        if (j < col) continue; //left the above loop coz current position is attacked, go to next row
+
+	//left the above loop coz current position is not attacked; assign a queen there if it's not costly, otherwise backtrack.
+	
+	if(min_cost > cost_so_far + weights[i][col])
+	{
+		hist[col] = i; 	
+		cost_so_far += weights[i][col]; //add its cost
+	}
+	else 
+		continue;
+	
+        spawn solve(col + 1, hist, cost_so_far);
+	sync;
+	cost_so_far -= weights[i][col]; //add its cost
+	
+    }
+}
+
+cilk void solver()
+{
+    int i, **boards;
+
+    /* generate n boards with the 1 cols placed differently */  
+    boards = (int**) malloc(n*sizeof(int*));  
+
+    for(i = 0; i < n; i++)  
+    { 
+        boards[i] = (int*) malloc(n*sizeof(int));  
+	boards[i][0] = i;
+	spawn solve(1, boards[i], weights[i][0]);
+     }
+	sync;
+
+	for (i = 0; i < n; i++) free(boards[i]);   
+	    free(boards); 
+  
+}
+
+cilk int main(int argc, char *argv[])
+{
+    int *hist, i;
+
+    if (argc != 2) {
+	  fprintf(stderr, "Usage: nq [<cilk options>] <n>\n");
+	  Cilk_exit(1);
+     }
+     //Size of the board : n
+     n = atoi(argv[1]);
+
+    /* alloc weights memory */  
+    weights = (int**) malloc(n*sizeof(int*));  
+    for (i = 0; i < n; i++)  
+       weights[i] = (int*) malloc(n*sizeof(int));  
+
+
+    /* Set board weights */
+     if (set_weights(weights, n) <= 0)
+     {
+	   printf("No weights found for this board in \"weights.h\".\nBoard size of: %dx%d is not supported.\n", n, n);
+	   return 2;
+     }
+
+     spawn solver(); sync;
+   
+    /*#pragma cilk grainsize = min(2048, n / (8*4))
+    cilk_for(i = 0; i < n; i++)  
+    {
+        boards[i] = (int*) malloc(n*sizeof(int));  
+	boards[i][0] = i;
+	spawn solve(1, boards[i], weights[i][0]);
+	sync;
+     }*/
+
+
+    /* free memory */
+    free(hist);
+    for (i = 0; i < n; i++) free(weights[i]);   
+    free(weights);  
+    
+    return 0;
+}
